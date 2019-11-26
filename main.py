@@ -51,9 +51,9 @@ Y_pred_multiple = lr_multiple.predict(X_test)
 
 print('DATOS DEL MODELO REGRESIÓN LINEAL MULTIPLE')
 print()
-print('Valor de las pendientes o coeficientes "a":')
+print('Valor de las pendientes:')
 print(lr_multiple.coef_)
-print('Valor de la intersección o coeficiente "b":')
+print('Valor de la intersección:')
 print(lr_multiple.intercept_)
 input("Presione ENTER para continuar...")
 
