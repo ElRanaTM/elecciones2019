@@ -1,12 +1,13 @@
+# Archivo principal
 # necesita xlrd, usar el comando 'pip install xlrd'
 
 from time import time
-
-import regresion_polinomial
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import regresion_polinomial as rp
+import graficos as gf
+
 # from sklearn import linear_model
 # from sklearn.model_selection import train_test_split
 
@@ -40,51 +41,45 @@ print(y.info())
 input("Presione ENTER para continuar...")
 
 newColumn = np.power(X, 7)
-print(newColumn.shape)
+# print(newColumn.shape)
 
 X_x2agregado = np.append(X, newColumn, 1)
-print(X_x2agregado.shape)
+# print(X_x2agregado.shape)
 
-plt.plot(X_x2agregado[:, 0], y, "y.", ms=1)
-plt.title("Comunidad Ciudadana")
-plt.xlabel('Cabtidad de Votantes')
-plt.ylabel('Cantidad de inscritos')
-plt.show()
-plt.plot(X_x2agregado[:, 1], y, "m.", ms=1)
-plt.title("Frente Para la Victoria")
-plt.xlabel('Cabtidad de Votantes')
-plt.ylabel('Cantidad de inscritos')
-plt.show()
-plt.plot(X_x2agregado[:, 2], y, "g.", ms=1)
-plt.title("Movimiento Tercer Sistema")
-plt.xlabel('Cabtidad de Votantes')
-plt.ylabel('Cantidad de inscritos')
-plt.show()
-plt.plot(X_x2agregado[:, 3], y, "b.", ms=1)
-plt.title("Movimiento Al Socialismo")
-plt.xlabel('Cabtidad de Votantes')
-plt.ylabel('Cantidad de inscritos')
-plt.show()
-plt.plot(X_x2agregado[:, 4], y, "r.", ms=1)
-plt.title("Bolivia Dice No 21F")
-plt.xlabel('Cabtidad de Votantes')
-plt.ylabel('Cantidad de inscritos')
-plt.show()
-plt.plot(X_x2agregado[:, 5], y, "k.", ms=1)
-plt.title("Partido Democrata Cristiano")
-plt.xlabel('Cabtidad de Votantes')
-plt.ylabel('Cantidad de inscritos')
-plt.show()
-plt.plot(X_x2agregado[:, 6], y, "c.", ms=1)
-plt.title("Movimiento Nacionalista Revolucionario")
-plt.xlabel('Cabtidad de Votantes')
-plt.ylabel('Cantidad de inscritos')
-plt.show()
-plt.plot(X_x2agregado[:, 7], y, "r.", ms=1)
-plt.title("Partido de Accion Nacional Boliviano")
-plt.xlabel('Cabtidad de Votantes')
-plt.ylabel('Cantidad de inscritos')
-plt.show()
+band = True
+while band:
+    print("Votantes vs Inscritos")
+    print("Elija un partido")
+    print("1. Comunidad Ciudadana")
+    print("2. Frente Para la Victoria")
+    print("3. Movimiento Tercer Sistema")
+    print("4. Movimiento Al Socialismo")
+    print("5. Bolivia Dice No 21F")
+    print("6. Partido Democrata Cristiano")
+    print("7. Movimiento Nacionalista Revolucionario")
+    print("8. Partido de Accion Nacional Boliviano")
+    print("9. Continuar")
+    opc = input("ingrese una opcion valida(1-9): ")
+    if opc == "1":
+        gf.imprimirCC(X_x2agregado, y)
+    if opc == "2":
+        gf.imprimirFPV(X_x2agregado, y)
+    if opc == "3":
+        gf.imprimirMTS(X_x2agregado, y)
+    if opc == "4":
+        gf.imprimirMAS(X_x2agregado, y)
+    if opc == "5":
+        gf.imprimir21F(X_x2agregado, y)
+    if opc == "6":
+        gf.imprimirPDC(X_x2agregado, y)
+    if opc == "7":
+        gf.imprimirMNR(X_x2agregado, y)
+    if opc == "8":
+        gf.imprimirPAN(X_x2agregado, y)
+    if opc == "9":
+        band = False
+
+
 '''
 # Entrenamos los datos
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
