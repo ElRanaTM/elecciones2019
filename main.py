@@ -96,7 +96,7 @@ X_x0agregado = np.column_stack((np.ones((m, 1)), X_norm)) # Añadir una columna 
 print('Ejecutando descenso por el gradiente ...')
 # Se establece un valor para alpha
 alpha = 0.01
-num_iteraciones = 16000
+num_iteraciones = 1000
 
 # inicializa theta y ejecuta descenso por el gradiente
 # Lamentablemente es un arreglo muy complejo, no se puede resolver
@@ -116,6 +116,13 @@ print("{:f}, {:f}, {:f}".format(theta[0, 0], theta[1, 0], theta[2, 0], theta[3, 
                                 theta[6, 0], theta[7, 0], theta[8, 0]))
 print("")
 
+# Estimar 
+
+c1 = (100 - float(mu[:, 0])) / float(sigma[:, 0])
+c2 = (3 - float(mu[:, 1]))/float(sigma[:, 1])
+c3= np.array([1, c1, c2])
+
+prediccion = np.array(c3).dot(theta)
 
 '''
 # Entrenamos los datos
