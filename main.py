@@ -100,7 +100,7 @@ num_iteraciones = 1000
 
 # inicializa theta y ejecuta descenso por el gradiente
 # Lamentablemente es un arreglo muy complejo, no se puede resolver
-theta = np.zeros((8, 1))
+theta = np.zeros((17, 1))
 print(theta)
 theta, J_history = rp.descensoGradienteMulti(X_x0agregado, y, theta, alpha, num_iteraciones)
 print(theta)
