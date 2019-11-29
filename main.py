@@ -79,6 +79,43 @@ while band:
     if opc == "9":
         band = False
 
+X_norm, mu, sigma = rp.normalizarCaracteristicas(X_x2agregado)
+# print(X_norm)
+# print(mu)
+# print(sigma)
+plt.plot(X_norm[:, 0] + X_norm[:, 1] + X_norm[:, 2] + X_norm[:, 3] + X_norm[:, 4] + X_norm[:, 5] + X_norm[:, 6] +
+         X_norm[:, 7], y, "k-", ms=1)
+plt.xlabel('Cantidad de Votantes')
+plt.ylabel('Cantidad de inscritos')
+plt.show()
+
+m = len(y)
+X_x0agregado = np.column_stack((np.ones((m, 1)), X_norm)) # Añadir una columna de unos a x
+# print(X_x0agregado)
+
+print('Ejecutando descenso por el gradiente ...')
+# Se establece un valor para alpha
+alpha = 0.01
+num_iteraciones = 16000
+
+# inicializa theta y ejecuta descenso por el gradiente
+# Lamentablemente es un arreglo muy complejo, no se puede resolver
+theta = np.zeros((8, 1))
+print(theta)
+theta, J_history = rp.descensoGradienteMulti(X_x0agregado, y, theta, alpha, num_iteraciones)
+print(theta)
+
+plt.plot(range(J_history.size), J_history, "k-", linewidth = 2)
+plt.xlabel('Numero de iteraciones')
+plt.ylabel('Costo J')
+plt.show(block=False)
+
+# Mostrar los resultados del descenso por el gradiente
+print('Theta calculado a partir del descenso por el gradiente: ')
+print("{:f}, {:f}, {:f}".format(theta[0, 0], theta[1, 0], theta[2, 0], theta[3, 0], theta[4, 0], theta[5, 0],
+                                theta[6, 0], theta[7, 0], theta[8, 0]))
+print("")
+
 
 '''
 # Entrenamos los datos
