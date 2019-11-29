@@ -116,7 +116,7 @@ print("{:f}, {:f}, {:f}".format(theta[0, 0], theta[1, 0], theta[2, 0], theta[3, 
                                 theta[6, 0], theta[7, 0], theta[8, 0]))
 print("")
 
-# Estimar 
+# Estimacion al 100%, aunque los datos dados no son completos, ni estan carrectamente clasificados
 
 c1 = (100 - float(mu[:, 0])) / float(sigma[:, 0])
 c2 = (3 - float(mu[:, 1]))/float(sigma[:, 1])
