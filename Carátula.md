@@ -1,6 +1,8 @@
 # elecciones2019
 # sis420
-leo javs y davos
-ayy no me acuerdo de sus apellidos
+
+Leonel Avendaño Villaroel
+Javier Andrés Tavera Sandoval
+David Vargas Lastra
 
 27/11/2019
